@@ -21,46 +21,42 @@ namespace LeagueSandbox_LAN_Server_Launcher
         public static List<int[]> redMapping = new List<int[]>();
         public static List<int[]> blueMapping = new List<int[]>();
         public static bool testingMode = false;
-        
+
         private int progressValue = 100;
         private bool debug = true;
         private string contentPath;
-        private int scanDepth = 10;
         private bool cheatsEnabled = false;
         private bool manacostsEnabled = true;
         private bool cooldownsEnabled = true;
         private bool minionSpawnsEnabled = true;
+        private int isBot; // To store the value from ls4lan.ini
 
         public Form1()
         {
             InitializeComponent();
-            // Content Path Scan, CPS
-            string gDirectory = "";
-            for (int i = 1; i < scanDepth + 1; i++)
-            {
-                string directory = "";
-                for (int j = 1; j < i + 1; j++)
-                {
-                    directory += "../";
-                }
-                if (Directory.Exists(directory + "Contents/"))
-                {
-                    contentPath = directory + "Contents/";
-                    textBox1.Text = directory + "Contents/";
-                    gDirectory = directory;
-                    break;
-                }
-                if (Directory.Exists(gDirectory)) break;
-            }
+
+            // Ensure ls4lan.ini is created and initialized
+            IniFile ini = new IniFile();
+
+            // Read content path from INI file
+            contentPath = ini.Read("Settings", "ContentPath", "../../../../Content");
+            textBox1.Text = contentPath;
+
+            // Read IsBot setting from INI file
+            isBot = int.Parse(ini.Read("Settings", "IsBot", "0"));
+
+            Console.WriteLine($"Content path read from INI: {contentPath}");
+            Console.WriteLine($"IsBot setting from INI: {isBot}");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
         private void setProgess(int value)
         {
-            float maximumWidth = panel6.Width/100;
+            float maximumWidth = panel6.Width / 100;
             if ((maximumWidth * 100 - value * maximumWidth) >= 0)
             {
                 progress.Width = Convert.ToInt32(maximumWidth * (100 - value));
@@ -70,6 +66,7 @@ namespace LeagueSandbox_LAN_Server_Launcher
             }
             this.Invalidate();
         }
+
         bool launchDisabled = false;
         private void button3_Click(object sender, EventArgs e)
         {
@@ -83,19 +80,27 @@ namespace LeagueSandbox_LAN_Server_Launcher
                 Console.WriteLine(buffer);
                 setProgess(85);
                 button3.Text = "写入Json...";
+
+                // 获取或设置 GameInfo.json 路径
+                IniFile ini = new IniFile();
+                string jsonPath = ini.Read("Settings", "GameInfoFilePath", "Settings\\GameInfo.json");
+
                 try
                 {
-                    File.WriteAllText("Settings\\GameInfo.json", buffer);
+                    File.WriteAllText(jsonPath, buffer);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("无法找到目录：\n" + ex.Message, "错误 - 无法找到目录", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
                 setProgess(95);
                 button3.Text = "启动服务器...";
+                // 获取 GameServerConsole.exe 路径
+                string gameServerPath = ini.Read("Settings", "GameServerPath", "GameServerConsole.exe");
                 try
                 {
-                    Process.Start("GameServerConsole.exe");
+                    Process.Start(gameServerPath);
                 }
                 catch (Exception ex)
                 {
@@ -181,13 +186,33 @@ namespace LeagueSandbox_LAN_Server_Launcher
             redPlayerCount++;
             if (redPlayerCount < 6)
             {
-                playerId++;
+                // Determine playerId based on IsBot setting
+                if (redPlayerCount == 1)
+                {
+                    playerId = isBot == 1 ? 1 : 1;
+                }
+                else
+                {
+                    if (isBot == 1)
+                    {
+                        playerId = -1;
+                    }
+                    else
+                    {
+                        playerId = idList.Count == 0 ? 1 : idList[idList.Count - 1] + 1;
+                        while (playerId == 0)
+                        {
+                            playerId++;
+                        }
+                    }
+                }
+
                 // Used to link listboxes to tabpage indexes
                 int[] mapping = { redPlayerCount - 1, playerCount };
                 redMapping.Add(mapping);
                 listBox1.Items.Add("Player" + Convert.ToString(playerId));
                 // New player instance
-                Form2 form = new Form2(playerId, "Player" + Convert.ToString(playerId), "RED", tabControl1, listBox1, redMapping[redMapping.Count-1]);
+                Form2 form = new Form2(playerId, "Player" + Convert.ToString(playerId), "RED", tabControl1, listBox1, redMapping[redMapping.Count - 1], isBot);
                 // New tabpage to hold the instance
                 TabPage neu = new TabPage();
                 // Instance initilization
@@ -217,11 +242,31 @@ namespace LeagueSandbox_LAN_Server_Launcher
             bluePlayerCount++;
             if (bluePlayerCount < 6)
             {
-                playerId++;
+                // Determine playerId based on IsBot setting
+                if (bluePlayerCount == 1)
+                {
+                    playerId = isBot == 1 ? 1 : 1;
+                }
+                else
+                {
+                    if (isBot == 1)
+                    {
+                        playerId = -1;
+                    }
+                    else
+                    {
+                        playerId = idList.Count == 0 ? 1 : idList[idList.Count - 1] + 1;
+                        while (playerId == 0)
+                        {
+                            playerId++;
+                        }
+                    }
+                }
+
                 int[] mapping = { bluePlayerCount - 1, playerCount };
                 blueMapping.Add(mapping);
                 listBox2.Items.Add("Player" + Convert.ToString(playerId));
-                Form2 form = new Form2(playerId, "Player" + Convert.ToString(playerId), "BLUE", tabControl1, listBox2, blueMapping[blueMapping.Count-1]);
+                Form2 form = new Form2(playerId, "Player" + Convert.ToString(playerId), "BLUE", tabControl1, listBox2, blueMapping[blueMapping.Count - 1], isBot);
                 TabPage neu = new TabPage();
                 neu.BackColor = Color.MidnightBlue;
                 form.Dock = DockStyle.Fill;
@@ -287,26 +332,22 @@ namespace LeagueSandbox_LAN_Server_Launcher
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (debug) return; 
-            if (!File.Exists("GameServerConsole.exe") || !Directory.Exists("Settings\\"))
+            if (debug) return;
+            // Check if GameServerConsole.exe exists
+            IniFile ini = new IniFile();
+            string gameServerPath = ini.Read("Settings", "GameServerPath", "GameServerConsole.exe");
+            if (!File.Exists(gameServerPath) || !Directory.Exists("Settings\\"))
             {
                 MessageBox.Show("未找到服务器文件，请将本程序至于GameServerConsole.exe同级目录！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
         }
+
         private Game prepareBuild()
         {
             List<Player> players = new List<Player>();
             for (int i = 0; i < redPlayerCount; i++)
             {
-                /*  public int playerId;
-                    public string rank;
-                    public string name;
-                    public string champion;
-                    public string team;
-                    public string summoner1;
-                    public string summoner2;
-                    */
                 Form2 builder = tabControl1.TabPages[redMapping[i][1]].Controls[0] as Form2;
                 players.Add(builder.buildPlayer());
             }
@@ -319,6 +360,7 @@ namespace LeagueSandbox_LAN_Server_Launcher
             button3.Text = "建立数据结构...";
             return new Game(players, manacostsEnabled, cooldownsEnabled, cheatsEnabled, minionSpawnsEnabled, contentPath);
         }
+
         private string buildJson(Game game)
         {
             setProgess(75);
@@ -333,12 +375,8 @@ namespace LeagueSandbox_LAN_Server_Launcher
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (Directory.Exists(textBox1.Text))
-            {
-                contentPath = textBox1.Text;
-                textBox1.ForeColor = Color.WhiteSmoke;
-            }
-            else textBox1.ForeColor = Color.Red;
+            contentPath = textBox1.Text;
+            textBox1.ForeColor = Color.WhiteSmoke;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -364,10 +402,10 @@ namespace LeagueSandbox_LAN_Server_Launcher
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
         {
             label7.Visible = checkBox5.Checked;
-            checkBox5.ForeColor = 
-                !checkBox5.Checked ? 
-                Color.PaleGreen : 
-                Color.OrangeRed ;
+            checkBox5.ForeColor =
+                !checkBox5.Checked ?
+                Color.PaleGreen :
+                Color.OrangeRed;
             testingMode = checkBox5.Checked;
             for (int i = 0; i < redPlayerCount; i++)
             {

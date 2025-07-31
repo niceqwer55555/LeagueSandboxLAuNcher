@@ -43,6 +43,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -59,8 +61,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -76,8 +76,9 @@
             // label2
             // 
             this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 23);
+            this.label2.Size = new System.Drawing.Size(150, 34);
             this.label2.TabIndex = 0;
             // 
             // panel3
@@ -90,8 +91,9 @@
             this.panel3.Controls.Add(this.button4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1049, 23);
+            this.panel3.Size = new System.Drawing.Size(1574, 34);
             this.panel3.TabIndex = 9;
             this.panel3.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDoubleClick);
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
@@ -102,12 +104,13 @@
             this.label1.AutoSize = true;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("SimSun", 10F);
+            this.label1.Font = new System.Drawing.Font("宋体", 10F);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(81, 0);
+            this.label1.Location = new System.Drawing.Point(122, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(2, 4, 0, 0);
-            this.label1.Size = new System.Drawing.Size(158, 20);
+            this.label1.Padding = new System.Windows.Forms.Padding(3, 6, 0, 0);
+            this.label1.Size = new System.Drawing.Size(224, 28);
             this.label1.TabIndex = 5;
             this.label1.Text = "LS 局域网服务器配置器";
             this.label1.UseMnemonic = false;
@@ -119,11 +122,12 @@
             // 
             this.button8.Dock = System.Windows.Forms.DockStyle.Left;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button8.Font = new System.Drawing.Font("微软雅黑", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button8.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button8.Location = new System.Drawing.Point(0, 0);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(81, 23);
+            this.button8.Size = new System.Drawing.Size(122, 34);
             this.button8.TabIndex = 4;
             this.button8.Text = "⚙️ 通用设置";
             this.button8.UseVisualStyleBackColor = true;
@@ -134,9 +138,10 @@
             this.button6.Dock = System.Windows.Forms.DockStyle.Right;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button6.Location = new System.Drawing.Point(875, 0);
+            this.button6.Location = new System.Drawing.Point(1313, 0);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(58, 23);
+            this.button6.Size = new System.Drawing.Size(87, 34);
             this.button6.TabIndex = 3;
             this.button6.Text = "—";
             this.button6.UseVisualStyleBackColor = true;
@@ -146,11 +151,12 @@
             // 
             this.button5.Dock = System.Windows.Forms.DockStyle.Right;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("SimSun", 11F);
+            this.button5.Font = new System.Drawing.Font("宋体", 11F);
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button5.Location = new System.Drawing.Point(933, 0);
+            this.button5.Location = new System.Drawing.Point(1400, 0);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(58, 23);
+            this.button5.Size = new System.Drawing.Size(87, 34);
             this.button5.TabIndex = 2;
             this.button5.Text = "口";
             this.button5.UseVisualStyleBackColor = true;
@@ -161,11 +167,12 @@
             this.button4.BackColor = System.Drawing.Color.Red;
             this.button4.Dock = System.Windows.Forms.DockStyle.Right;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("SimSun", 11F);
+            this.button4.Font = new System.Drawing.Font("宋体", 11F);
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button4.Location = new System.Drawing.Point(991, 0);
+            this.button4.Location = new System.Drawing.Point(1487, 0);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(58, 23);
+            this.button4.Size = new System.Drawing.Size(87, 34);
             this.button4.TabIndex = 1;
             this.button4.Text = "×";
             this.button4.UseVisualStyleBackColor = false;
@@ -179,9 +186,10 @@
             this.panel5.Controls.Add(this.panel2);
             this.panel5.Controls.Add(this.panel1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 23);
+            this.panel5.Location = new System.Drawing.Point(0, 34);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1049, 523);
+            this.panel5.Size = new System.Drawing.Size(1574, 785);
             this.panel5.TabIndex = 7;
             // 
             // panel6
@@ -189,9 +197,10 @@
             this.panel6.Controls.Add(this.button3);
             this.panel6.Controls.Add(this.progress);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(184, 483);
+            this.panel6.Location = new System.Drawing.Point(276, 726);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(679, 38);
+            this.panel6.Size = new System.Drawing.Size(1020, 57);
             this.panel6.TabIndex = 12;
             // 
             // button3
@@ -199,11 +208,12 @@
             this.button3.BackColor = System.Drawing.Color.DarkGreen;
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("SimSun", 18F);
+            this.button3.Font = new System.Drawing.Font("宋体", 18F);
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button3.Location = new System.Drawing.Point(0, 0);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(679, 38);
+            this.button3.Size = new System.Drawing.Size(1020, 57);
             this.button3.TabIndex = 14;
             this.button3.Text = "启动服务器！";
             this.button3.UseVisualStyleBackColor = false;
@@ -214,9 +224,10 @@
             this.progress.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.progress.Controls.Add(this.button7);
             this.progress.Dock = System.Windows.Forms.DockStyle.Right;
-            this.progress.Location = new System.Drawing.Point(679, 0);
+            this.progress.Location = new System.Drawing.Point(1020, 0);
+            this.progress.Margin = new System.Windows.Forms.Padding(4);
             this.progress.Name = "progress";
-            this.progress.Size = new System.Drawing.Size(0, 38);
+            this.progress.Size = new System.Drawing.Size(0, 57);
             this.progress.TabIndex = 13;
             // 
             // button7
@@ -225,11 +236,12 @@
             this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button7.Enabled = false;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("SimSun", 18F);
+            this.button7.Font = new System.Drawing.Font("宋体", 18F);
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button7.Location = new System.Drawing.Point(0, 0);
+            this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(0, 38);
+            this.button7.Size = new System.Drawing.Size(0, 57);
             this.button7.TabIndex = 2;
             this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button7.UseVisualStyleBackColor = false;
@@ -240,10 +252,11 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ItemSize = new System.Drawing.Size(0, 1);
-            this.tabControl1.Location = new System.Drawing.Point(184, 0);
+            this.tabControl1.Location = new System.Drawing.Point(276, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(679, 521);
+            this.tabControl1.Size = new System.Drawing.Size(1020, 783);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             // 
@@ -255,9 +268,10 @@
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Location = new System.Drawing.Point(4, 5);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(671, 512);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1012, 774);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             // 
@@ -274,25 +288,58 @@
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.ForeColor = System.Drawing.Color.Orange;
-            this.groupBox1.Location = new System.Drawing.Point(3, 96);
+            this.groupBox1.Location = new System.Drawing.Point(4, 144);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(665, 413);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(1004, 626);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "通用设置";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label7.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.label7.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label7.Location = new System.Drawing.Point(4, 286);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.label7.Size = new System.Drawing.Size(510, 27);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "警告！测试功能已启用！服务器可能不会正常启动！";
+            this.label7.Visible = false;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkBox5.ForeColor = System.Drawing.Color.PaleGreen;
+            this.checkBox5.Location = new System.Drawing.Point(4, 251);
+            this.checkBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.checkBox5.Size = new System.Drawing.Size(996, 35);
+            this.checkBox5.TabIndex = 6;
+            this.checkBox5.Text = "启用测试功能";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.label6.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label6.Location = new System.Drawing.Point(3, 157);
+            this.label6.Location = new System.Drawing.Point(4, 224);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(208, 0, 0, 0);
-            this.label6.Size = new System.Drawing.Size(329, 20);
+            this.label6.Padding = new System.Windows.Forms.Padding(312, 0, 0, 0);
+            this.label6.Size = new System.Drawing.Size(484, 27);
             this.label6.TabIndex = 5;
             this.label6.Text = "一般情况默认即可";
             // 
@@ -301,10 +348,11 @@
             this.panel4.Controls.Add(this.textBox1);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(3, 125);
+            this.panel4.Location = new System.Drawing.Point(4, 176);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.panel4.Size = new System.Drawing.Size(659, 32);
+            this.panel4.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.panel4.Size = new System.Drawing.Size(996, 48);
             this.panel4.TabIndex = 4;
             // 
             // textBox1
@@ -312,21 +360,23 @@
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.Location = new System.Drawing.Point(211, 0);
+            this.textBox1.Location = new System.Drawing.Point(317, 0);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(448, 29);
+            this.textBox1.Size = new System.Drawing.Size(679, 39);
             this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "../../../../Contents/";
+            this.textBox1.Text = "../../../../../Content";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label5.Location = new System.Drawing.Point(5, 0);
+            this.label5.Location = new System.Drawing.Point(8, 0);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.label5.Size = new System.Drawing.Size(206, 25);
+            this.label5.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.label5.Size = new System.Drawing.Size(309, 37);
             this.label5.TabIndex = 0;
             this.label5.Text = "依赖文件(Contents) 目录：";
             // 
@@ -336,10 +386,11 @@
             this.checkBox4.Checked = true;
             this.checkBox4.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBox4.Location = new System.Drawing.Point(3, 100);
+            this.checkBox4.Location = new System.Drawing.Point(4, 141);
+            this.checkBox4.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.checkBox4.Size = new System.Drawing.Size(659, 25);
+            this.checkBox4.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.checkBox4.Size = new System.Drawing.Size(996, 35);
             this.checkBox4.TabIndex = 3;
             this.checkBox4.Text = "启用兵线";
             this.checkBox4.UseVisualStyleBackColor = true;
@@ -351,10 +402,11 @@
             this.checkBox3.Checked = true;
             this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBox3.Location = new System.Drawing.Point(3, 75);
+            this.checkBox3.Location = new System.Drawing.Point(4, 106);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.checkBox3.Size = new System.Drawing.Size(659, 25);
+            this.checkBox3.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.checkBox3.Size = new System.Drawing.Size(996, 35);
             this.checkBox3.TabIndex = 2;
             this.checkBox3.Text = "启用CD";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -366,10 +418,11 @@
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBox2.Location = new System.Drawing.Point(3, 50);
+            this.checkBox2.Location = new System.Drawing.Point(4, 71);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.checkBox2.Size = new System.Drawing.Size(659, 25);
+            this.checkBox2.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.checkBox2.Size = new System.Drawing.Size(996, 35);
             this.checkBox2.TabIndex = 1;
             this.checkBox2.Text = "启用耗蓝";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -379,10 +432,11 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBox1.Location = new System.Drawing.Point(3, 25);
+            this.checkBox1.Location = new System.Drawing.Point(4, 36);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.checkBox1.Size = new System.Drawing.Size(659, 25);
+            this.checkBox1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.checkBox1.Size = new System.Drawing.Size(996, 35);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "启用作弊";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -392,11 +446,12 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 18F);
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 18F);
             this.label4.ForeColor = System.Drawing.Color.Orange;
-            this.label4.Location = new System.Drawing.Point(3, 65);
+            this.label4.Location = new System.Drawing.Point(4, 98);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(243, 31);
+            this.label4.Size = new System.Drawing.Size(365, 46);
             this.label4.TabIndex = 1;
             this.label4.Text = " [添加玩家 ＋] 以开始";
             // 
@@ -404,11 +459,12 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Orange;
-            this.label3.Location = new System.Drawing.Point(3, 3);
+            this.label3.Location = new System.Drawing.Point(4, 4);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(528, 62);
+            this.label3.Size = new System.Drawing.Size(791, 94);
             this.label3.TabIndex = 0;
             this.label3.Text = "欢迎使用LS LAN配置器";
             // 
@@ -417,9 +473,10 @@
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.listBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(863, 0);
+            this.panel2.Location = new System.Drawing.Point(1296, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(184, 521);
+            this.panel2.Size = new System.Drawing.Size(276, 783);
             this.panel2.TabIndex = 9;
             // 
             // button2
@@ -427,11 +484,12 @@
             this.button2.BackColor = System.Drawing.Color.MidnightBlue;
             this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("SimSun", 18F);
+            this.button2.Font = new System.Drawing.Font("宋体", 18F);
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(0, 483);
+            this.button2.Location = new System.Drawing.Point(0, 726);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(184, 38);
+            this.button2.Size = new System.Drawing.Size(276, 57);
             this.button2.TabIndex = 2;
             this.button2.Text = "添加玩家 ＋";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -445,10 +503,11 @@
             this.listBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 12;
+            this.listBox2.ItemHeight = 18;
             this.listBox2.Location = new System.Drawing.Point(0, 0);
+            this.listBox2.Margin = new System.Windows.Forms.Padding(4);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(184, 521);
+            this.listBox2.Size = new System.Drawing.Size(276, 783);
             this.listBox2.TabIndex = 1;
             this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
@@ -458,8 +517,9 @@
             this.panel1.Controls.Add(this.listBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(184, 521);
+            this.panel1.Size = new System.Drawing.Size(276, 783);
             this.panel1.TabIndex = 7;
             // 
             // button1
@@ -467,11 +527,12 @@
             this.button1.BackColor = System.Drawing.Color.Maroon;
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("SimSun", 18F);
+            this.button1.Font = new System.Drawing.Font("宋体", 18F);
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(0, 483);
+            this.button1.Location = new System.Drawing.Point(0, 726);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(184, 38);
+            this.button1.Size = new System.Drawing.Size(276, 57);
             this.button1.TabIndex = 1;
             this.button1.Text = "添加玩家 ＋";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -485,50 +546,24 @@
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
+            this.listBox1.ItemHeight = 18;
             this.listBox1.Location = new System.Drawing.Point(0, 0);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(184, 521);
+            this.listBox1.Size = new System.Drawing.Size(276, 783);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBox5.ForeColor = System.Drawing.Color.PaleGreen;
-            this.checkBox5.Location = new System.Drawing.Point(3, 177);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.checkBox5.Size = new System.Drawing.Size(659, 25);
-            this.checkBox5.TabIndex = 6;
-            this.checkBox5.Text = "启用测试功能";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 10F);
-            this.label7.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label7.Location = new System.Drawing.Point(3, 202);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.label7.Size = new System.Drawing.Size(356, 20);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "警告！测试功能已启用！服务器可能不会正常启动！";
-            this.label7.Visible = false;
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1049, 546);
+            this.ClientSize = new System.Drawing.Size(1574, 819);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -25,8 +25,9 @@ namespace LeagueSandbox_LAN_Server_Launcher
         private int lastSummoner1;
         private int lastSummoner2;
         private int skin = 0;
+        private int isBot; // Added to handle IsBot setting
 
-        public Form2(int id, string name, string team, TabControl parent, ListBox parentListbox, int[] currentMapping, string summoner1 = "治疗", string summoner2 = "闪现", string rank = "钻石", string champion = "伊泽瑞尔")
+        public Form2(int id, string name, string team, TabControl parent, ListBox parentListbox, int[] currentMapping, int isBot = 0, string summoner1 = "治疗", string summoner2 = "闪现", string rank = "钻石", string champion = "伊泽瑞尔")
         {
             this.id = id;
             this.rank = rank;
@@ -38,6 +39,7 @@ namespace LeagueSandbox_LAN_Server_Launcher
             this.parentListbox = parentListbox;
             this.currentMapping = currentMapping;
             this.parent = parent;
+            this.isBot = isBot; // Store IsBot setting
             InitializeComponent();
 
             updateTestMode();
@@ -45,10 +47,14 @@ namespace LeagueSandbox_LAN_Server_Launcher
             if (team == "RED") this.BackColor = Color.Maroon;
             else this.BackColor = Color.MidnightBlue;
 
+            // Set the minimum value of playerId based on IsBot setting
+            playerId.Minimum = isBot == 1 ? -1 : 1;
+            playerId.ValueChanged -= playerId_ValueChanged; // Unsubscribe from the event
             playerId.Value = id;
+            playerId.ValueChanged += playerId_ValueChanged; // Resubscribe to the event
             lastValue = id;
             playerName.Text = this.name;
-            for(int i = 0; i<playerRank.Items.Count; i++)
+            for (int i = 0; i < playerRank.Items.Count; i++)
             {
                 if (playerRank.Items[i] == rank)
                 {
@@ -88,8 +94,8 @@ namespace LeagueSandbox_LAN_Server_Launcher
                 private ListBox parentListbox;
                 private int[] currentMapping;
              */
-            
-            for(int i = 0; i < Form1.blueMapping.Count; i++)
+
+            for (int i = 0; i < Form1.blueMapping.Count; i++)
             {
                 if (Form1.blueMapping[i][1] > currentMapping[1]) Form1.blueMapping[i][1]--;
             }// reindex blue mapping
@@ -97,23 +103,23 @@ namespace LeagueSandbox_LAN_Server_Launcher
             {
                 if (Form1.redMapping[i][1] > currentMapping[1]) Form1.redMapping[i][1]--;
             }// reindex red mapping
-            if(team == "BLUE")
+            if (team == "BLUE")
             {
-                for(int i = 0; i < parentListbox.Items.Count; i++)
+                for (int i = 0; i < parentListbox.Items.Count; i++)
                 {
                     if (Form1.blueMapping[i][0] > currentMapping[0]) Form1.blueMapping[i][0]--;
                 }
-            }// reindex blue mapping if nessisary
+            }// reindex blue mapping if necessary
             else
             {
                 for (int i = 0; i < parentListbox.Items.Count; i++)
                 {
                     if (Form1.redMapping[i][0] > currentMapping[0]) Form1.redMapping[i][0]--;
                 }
-            }// reindex red mapping if nessisary
+            }// reindex red mapping if necessary
             parentListbox.Items.RemoveAt(currentMapping[0]);
             parent.TabPages.RemoveAt(currentMapping[1]);
-            if (team == "RED") 
+            if (team == "RED")
             {
                 Form1.redPlayerCount--;
                 Form1.red.RemoveAt(currentMapping[0]);
@@ -134,6 +140,7 @@ namespace LeagueSandbox_LAN_Server_Launcher
         {
             parentListbox.Items[currentMapping[0]] = playerName.Text;
         }
+
         public Player buildPlayer()
         {
             return new Player(id, rank, name, champion, team, summoner1, summoner2, skin);
@@ -141,16 +148,26 @@ namespace LeagueSandbox_LAN_Server_Launcher
 
         private void playerId_ValueChanged(object sender, EventArgs e)
         {
-            for(int i = 0; i < Form1.idList.Count; i++)
+            if (isBot == 1 && playerId.Value != -1)
+            {
+                playerId.ValueChanged -= playerId_ValueChanged; // Unsubscribe from the event
+                playerId.Value = -1;
+                playerId.ValueChanged += playerId_ValueChanged; // Resubscribe to the event
+                return;
+            }
+
+            for (int i = 0; i < Form1.idList.Count; i++)
             {
                 if (Form1.idList[i] == playerId.Value)
                 {
+                    playerId.ValueChanged -= playerId_ValueChanged; // Unsubscribe from the event
                     playerId.Value = lastValue;
+                    playerId.ValueChanged += playerId_ValueChanged; // Resubscribe to the event
                     return;
                 }
             }
-            repeat:
-                if(Form1.idList.Remove(lastValue)) goto repeat;
+
+            Form1.idList.Remove(lastValue);
             Form1.idList.Add(Convert.ToInt32(playerId.Value));
             lastValue = Convert.ToInt32(playerId.Value);
         }
@@ -194,7 +211,7 @@ namespace LeagueSandbox_LAN_Server_Launcher
                         summoner1 = "SummonerFlash";
                         break;
                     default:
-                        champion = "SummonerHeal";
+                        summoner1 = "SummonerHeal";
                         break;
                 }
                 return;
@@ -215,13 +232,14 @@ namespace LeagueSandbox_LAN_Server_Launcher
                         summoner2 = "SummonerFlash";
                         break;
                     default:
-                        champion = "SummonerHeal";
+                        summoner2 = "SummonerHeal";
                         break;
                 }
                 return;
             }
             playerSummoner2.SelectedIndex = lastSummoner2;
         }
+
         public void updateTestMode()
         {
             panel7.Visible = Form1.testingMode;

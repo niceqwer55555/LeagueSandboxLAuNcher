@@ -51,6 +51,25 @@ namespace LeagueSandbox_LAN_Server_Launcher
             ["29"] = 5335,
             ["30"] = 5335
         };
+        public Dictionary<string, int> talents = new Dictionary<string, int>()
+        {
+            ["4111"] = 1,
+            ["4112"] = 3,
+            ["4114"] = 1,
+            ["4122"] = 3,
+            ["4124"] = 1,
+            ["4132"] = 1,
+            ["4134"] = 3,
+            ["4142"] = 3,
+            ["4151"] = 1,
+            ["4152"] = 3,
+            ["4162"] = 1,
+            ["4211"] = 2,
+            ["4213"] = 2,
+            ["4221"] = 1,
+            ["4222"] = 3,
+            ["4232"] = 1
+        };
         public Player(int playerId, string rank, string name, string champion, string team, string summoner1, string summoner2, int skin = 0)
         {
             this.playerId = playerId;
